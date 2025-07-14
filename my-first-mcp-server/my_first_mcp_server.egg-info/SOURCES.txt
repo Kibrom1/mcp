@@ -1,0 +1,6 @@
+README.md
+pyproject.toml
+my_first_mcp_server.egg-info/PKG-INFO
+my_first_mcp_server.egg-info/SOURCES.txt
+my_first_mcp_server.egg-info/dependency_links.txt
+my_first_mcp_server.egg-info/top_level.txt

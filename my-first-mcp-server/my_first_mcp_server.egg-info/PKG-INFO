@@ -1,0 +1,143 @@
+Metadata-Version: 2.4
+Name: my-first-mcp-server
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+
+# TodoMCP Server and Client
+
+A simple Model Context Protocol (MCP) implementation for managing todo items. This project includes a FastMCP server and a Python client that communicate via stdio.
+
+## Features
+
+- **Add todos** - Create new todo items
+- **List todos** - View all todo items with status
+- **Complete todos** - Mark items as completed
+- **Delete todos** - Remove todo items
+- **Get todo details** - View individual todo information
+- **Greeting resource** - Fun greeting functionality
+
+## Project Structure
+
+```
+my-first-mcp-server/
+├── mcp-server.py      # TodoMCP server implementation
+├── mcp-client.py      # Simple MCP client with CLI
+├── pyproject.toml     # Project configuration
+└── README.md          # This file
+```
+
+## Installation
+
+### Prerequisites
+
+- Python 3.12 or higher
+- pip package manager
+
+### Install Dependencies
+
+```bash
+pip install fastmcp
+```
+
+## Usage
+
+### Method 1: Automatic Server Management (Recommended)
+
+The client can automatically start and manage the server process:
+
+```bash
+# Run the interactive client (starts server automatically)
+python mcp-client.py
+
+# Or run tests
+python mcp-client.py --test
+```
+
+### Method 2: Manual Server Management
+
+If you prefer to run the server separately:
+
+**Terminal 1 - Start the server:**
+```bash
+python mcp-server.py
+```
+
+**Terminal 2 - Run the client:**
+```bash
+python mcp-client.py
+```
+
+## Client Commands
+
+Once the client is running, you can use these commands:
+
+### Basic Commands
+
+- `add <title>` - Add a new todo
+- `list` - List all todos with status
+- `complete <id>` - Mark todo as completed
+- `delete <id>` - Delete a todo
+- `get <id>` - Get detailed todo information
+- `greet [name]` - Get a greeting message
+- `help` - Show command help
+- `quit` - Exit the client
+
+### Command Examples
+
+```bash
+todo> add Buy groceries
+✅ Todo 'Buy groceries' added with ID 12345678-1234-5678-9abc-123456789abc
+
+todo> add Walk the dog
+✅ Todo 'Walk the dog' added with ID 87654321-4321-8765-cba9-987654321cba
+
+todo> list
+📋 Your Todos:
+  ⏳ [12345678] Buy groceries
+  ⏳ [87654321] Walk the dog
+
+todo> complete 12345678
+✅ Todo 'Buy groceries' marked as completed.
+
+todo> delete 87654321
+🗑️  Todo 'Walk the dog' deleted.
+
+todo> get 12345678
+📝 Todo Details:
+   ID: 12345678-1234-5678-9abc-123456789abc
+   Title: Buy groceries
+   Status: ✅ Completed
+   Created: 2024-01-15T10:30:00.123456
+
+todo> greet Alice
+👋 Hello, Alice! Welcome to your todo manager.
+```
+
+## Quick Start
+
+1. **Clone or download the files**
+2. **Install dependencies:**
+   ```bash
+   pip install fastmcp
+   ```
+3. **Run the client:**
+   ```bash
+   python mcp-client.py
+   ```
+4. **Start managing todos** using the interactive commands
+
+## Testing
+
+Run the automated test suite:
+
+```bash
+python mcp-client.py --test
+```
+
+This will:
+- Start the server
+- Add sample todos
+- List todos
+- Complete a todo
